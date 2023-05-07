@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/tasks")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class TaskController {
 
     private final ITaskService service;
@@ -31,11 +32,31 @@ public class TaskController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<TaskDTO> findById(@PathVariable("id") Integer id) throws Exception {
+        Task obj = service.findById(id);
+        return new ResponseEntity<>(convertToDto(obj), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<TaskDTO> create(@Valid @RequestBody TaskDTO dto) throws Exception {
         Task obj = service.save(convertToEntity(dto));
         return new ResponseEntity<>(convertToDto(obj), HttpStatus.CREATED);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TaskDTO> update(@Valid @RequestBody TaskDTO dto, @PathVariable("id") Integer id) throws Exception {
+        dto.setIdTask(id);
+        Task obj = service.save(convertToEntity(dto));
+        return new ResponseEntity<>(convertToDto(obj), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable("id") Integer id) throws Exception {
+        service.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
     private TaskDTO convertToDto(Task task) {
         return mapper.map(task, TaskDTO.class);
     }
