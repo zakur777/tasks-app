@@ -1,15 +1,51 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
 import './todoList.css';
+import { connect } from 'react-redux';
+import { fetchTodos } from '../../redux/actions/fetchTodos';   
 
-export const TodoList = () => {
+const TodoList = ({todos, isLoading, error, fetchTodos}) => {
+
+    useEffect(() => {
+        fetchTodos();
+      }, [fetchTodos]);
+
     return (
-        <div>
-            <ul>
+        <div className='container-todo'>
+            {/* <ul>
                 <TodoItem text="Todo 1" />
                 <TodoItem text="Todo 2" />
                 <TodoItem text="Todo 3" />
-            </ul>
+            </ul> */}
+            {error && <p>Error: {error.message}</p>}
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : (
+                <ul>
+                    {todos.map(todo => (
+                        <TodoItem key={todo.idTask} text={todo.descriptionTask} />
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };
+
+function mapStateToProps(state) {
+    return {
+        todos: state.todos,
+        isLoading: state.isLoading,
+        error: state.error
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    //return bindActionCreators({fetchTodos}, dispatch);
+    return {
+        fetchTodos: () => dispatch(fetchTodos())
+    };
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
