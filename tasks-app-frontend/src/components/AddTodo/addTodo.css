@@ -1,0 +1,23 @@
+/* Set styles for the input*/
+.input-todo {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin-right: 10px;
+  }
+  
+  /* Set styles for the button*/
+  .add-todo {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Add hover effect to the button */
+  .add-todo:hover {
+    background-color: #3e8e41;
+  }
+  
