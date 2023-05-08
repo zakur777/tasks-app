@@ -24,5 +24,54 @@
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
+    width: 59px;
+    margin-right: 10px;
   }
+  
+  .todo-item button:hover {
+    background-color: #c9302c;
+  }
+
+  
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    width: 600px;
+  }
+  
+  .todo-item span {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .todo-item input[type="checkbox"] {
+    margin-right: 10px;
+    }
+    
+    .todo-item button {
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 59px;
+    margin-right: 10px;
+  }
+  
+  .todo-item button:hover {
+    background-color: #c9302c;
+  }
+  
+
+.todo-item button.blue {
+  background-color: #0069d9;
+}
+
+.todo-item button.blue:hover {
+  background-color: #004c9e;
+}
   

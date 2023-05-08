@@ -1,17 +1,20 @@
 import React, {useEffect} from 'react';
-import { TodoItem } from '../TodoItem/TodoItem';
+import TodoItem from '../TodoItem/TodoItem';
 import './todoList.css';
 import { connect } from 'react-redux';
-import { fetchTodos } from '../../redux/actions/fetchTodos';   
+import { fetchTodos } from '../../redux/actions/fetchTodos'; 
+import AddTodo from '../AddTodo/AddTodo';
 
 const TodoList = ({todos, isLoading, error, fetchTodos}) => {
 
     useEffect(() => {
         fetchTodos();
       }, [fetchTodos]);
+      
 
     return (
         <div className='container-todo'>
+            <AddTodo />
             {/* <ul>
                 <TodoItem text="Todo 1" />
                 <TodoItem text="Todo 2" />
@@ -23,7 +26,7 @@ const TodoList = ({todos, isLoading, error, fetchTodos}) => {
             ) : (
                 <ul>
                     {todos.map(todo => (
-                        <TodoItem key={todo.idTask} text={todo.descriptionTask} />
+                        <TodoItem key={todo.idTask} todo={todo} />
                     ))}
                 </ul>
             )}
