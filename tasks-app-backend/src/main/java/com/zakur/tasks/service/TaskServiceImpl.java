@@ -1,9 +1,8 @@
-package com.zakur.tasks.service.impl;
+package com.zakur.tasks.service;
 
 import com.zakur.tasks.model.Task;
 import com.zakur.tasks.repository.IGenericRepository;
 import com.zakur.tasks.repository.ITaskRepository;
-import com.zakur.tasks.service.ITaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

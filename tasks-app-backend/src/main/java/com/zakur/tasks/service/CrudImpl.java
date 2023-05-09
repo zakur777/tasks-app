@@ -1,4 +1,4 @@
-package com.zakur.tasks.service.impl;
+package com.zakur.tasks.service;
 
 import com.zakur.tasks.exception.ModelNotFoundException;
 import com.zakur.tasks.repository.IGenericRepository;

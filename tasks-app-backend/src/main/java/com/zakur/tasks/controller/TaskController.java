@@ -47,7 +47,7 @@ public class TaskController {
     @PutMapping("/{id}")
     public ResponseEntity<TaskDTO> update(@Valid @RequestBody TaskDTO dto, @PathVariable("id") Integer id) throws Exception {
         dto.setIdTask(id);
-        Task obj = service.save(convertToEntity(dto));
+        Task obj = service.update(convertToEntity(dto), id);
         return new ResponseEntity<>(convertToDto(obj), HttpStatus.OK);
     }
 
