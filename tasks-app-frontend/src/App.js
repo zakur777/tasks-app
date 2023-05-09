@@ -3,7 +3,7 @@ import './App.css';
 import { Container } from './components/Container/Container';
 import TodoList from './components/TodoList/TodoList';
 
-function App() {
+export function App() {
     return (
         <Container>
             <h1>Task's App</h1>

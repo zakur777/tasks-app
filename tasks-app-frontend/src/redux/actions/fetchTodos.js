@@ -6,20 +6,20 @@ import {
 
 import axios from 'axios';
 
-function fetchTodosRequest() {
+export function fetchTodosRequest() {
     return {
         type: FETCH_TODOS_REQUEST,
     };
 }
 
-function fetchTodosSuccess(todos) {
+export function fetchTodosSuccess(todos) {
     return {
         type: FETCH_TODOS_SUCCESS,
         todos,
     };
 }
 
-function fetchTodosFailure(error) {
+export function fetchTodosFailure(error) {
     return {
         type: FETCH_TODOS_FAILURE,
         error,

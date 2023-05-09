@@ -5,7 +5,7 @@ import { deleteTodo } from '../../redux/actions/deleteTodo';
 
 import './todoItem.css';
 
-const TodoItem = ({ updateTodo, todo, deleteTodo }) => {
+export const TodoItem = ({ updateTodo, todo, deleteTodo }) => {
 
     const [isEditing, setIsEditing] = useState(false);
     const [updatedDescription, setUpdatedDescription] = useState(todo.descriptionTask);
@@ -31,7 +31,7 @@ const TodoItem = ({ updateTodo, todo, deleteTodo }) => {
     
 
     return (
-        <li className="todo-item">
+        <li id='todo-item-id' className="todo-item">
             <span
                 ref={spanRef} 
                 style={{ textDecoration: todo.completedTask ? 'line-through' : 'none' }} 
@@ -44,6 +44,7 @@ const TodoItem = ({ updateTodo, todo, deleteTodo }) => {
                     });
                     setIsEditing(false);
                 }}
+                suppressContentEditableWarning={true}
             >
                 {todo.descriptionTask}
             </span>

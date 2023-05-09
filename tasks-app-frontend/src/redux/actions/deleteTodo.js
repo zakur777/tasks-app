@@ -5,20 +5,20 @@ import {
 } from './types';
 import axios from 'axios';
 
-function deleteTodoRequest() {
+export function deleteTodoRequest() {
     return {
         type: DELETE_TODO_REQUEST,
     };
 }
 
-function deleteTodoSuccess(todo) {
+export function deleteTodoSuccess(todo) {
     return {
         type: DELETE_TODO_SUCCESS,
         todo,
     };
 }
 
-function deleteTodoFailure(error) {
+export function deleteTodoFailure(error) {
     return {
         type: DELETE_TODO_FAILURE,
         error,

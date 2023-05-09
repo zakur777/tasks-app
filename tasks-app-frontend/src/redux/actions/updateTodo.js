@@ -5,20 +5,20 @@ import {
 } from './types';
 import axios from 'axios';
 
-function updateTodoRequest() {
+export function updateTodoRequest() {
     return {
         type: UPDATE_TODO_REQUEST,
     };
 }
 
-function updateTodoSuccess(todo) {
+export function updateTodoSuccess(todo) {
     return {
         type: UPDATE_TODO_SUCCESS,
         todo,
     };
 }
 
-function updateTodoFailure(error) {
+export function updateTodoFailure(error) {
     return {
         type: UPDATE_TODO_FAILURE,
         error,

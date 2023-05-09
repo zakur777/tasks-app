@@ -1,20 +1,20 @@
 import { ADD_TODO_REQUEST, ADD_TODO_SUCCESS, ADD_TODO_FAILURE } from './types';
 import axios from 'axios';
 
-function addTodoRequest() {
+export function addTodoRequest() {
     return {
         type: ADD_TODO_REQUEST,
     };
 }
 
-function addTodoSuccess(todo) {
+export function addTodoSuccess(todo) {
     return {
         type: ADD_TODO_SUCCESS,
         todo,
     };
 }
 
-function addTodoFailure(error) {
+export function addTodoFailure(error) {
     return {
         type: ADD_TODO_FAILURE,
         error,

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions/addTodo';
 import './addTodo.css';
 
-const AddTodo = ({addTodo}) => {
+export const AddTodo = ({addTodo}) => {
     const initialValues = {
         todo: ''
     };

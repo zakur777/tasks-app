@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import TodoItem from '../TodoItem/TodoItem';
 import './todoList.css';
 import { connect } from 'react-redux';
 import { fetchTodos } from '../../redux/actions/fetchTodos'; 
 import AddTodo from '../AddTodo/AddTodo';
 
-const TodoList = ({todos, isLoading, error, fetchTodos}) => {
+export const TodoList = ({todos, isLoading, error, fetchTodos}) => {
 
     useEffect(() => {
         fetchTodos();
@@ -15,11 +15,6 @@ const TodoList = ({todos, isLoading, error, fetchTodos}) => {
     return (
         <div className='container-todo'>
             <AddTodo />
-            {/* <ul>
-                <TodoItem text="Todo 1" />
-                <TodoItem text="Todo 2" />
-                <TodoItem text="Todo 3" />
-            </ul> */}
             {error && <p>Error: {error.message}</p>}
             {isLoading ? (
                 <p>Loading...</p>
